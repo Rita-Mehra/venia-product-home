@@ -14,7 +14,8 @@ const categoryFilters = document.querySelectorAll('input[name="category"]');
 const productCountDisplay = document.querySelector('.product-count'); 
 const cartCountDisplay = document.querySelector('.cart-count'); 
 const hamburgerMenu = document.getElementById('hamburger-menu');
-const navbar = document.getElementById('navbar');
+const navbar = document.getElementById('sidebar');
+const close = document.getElementById('close');
 
 // Fetch products from API
 async function fetchProducts() {
@@ -39,7 +40,7 @@ function renderProducts() {
     const endIndex = startIndex + PRODUCTS_PER_PAGE;
     const productsToRender = filteredProducts.slice(startIndex, endIndex);
 
-    //product cards
+    // Product cards
     productsContainer.innerHTML += productsToRender.map(product => `
         <div class="product-card" id="product-${product.id}">
             <img src="${product.image}" class="product-image" alt="${product.title}">
@@ -114,8 +115,14 @@ function filterProducts() {
     renderProducts();
 }
 
+// Hamburger menu functionality
 hamburgerMenu.addEventListener('click', () => {
-    navbar.querySelector('nav').classList.toggle('active');
+    hamburgerMenu.classList.toggle('active');
+    navbar.classList.toggle('active');
+});
+
+close.addEventListener('click', () => {
+    navbar.classList.remove('active');
 });
 
 loadMoreButton.addEventListener('click', loadMoreProducts);

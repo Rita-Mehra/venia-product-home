@@ -13,6 +13,7 @@ const sortSelect = document.getElementById('sort-select');
 const categoryFilters = document.querySelectorAll('input[name="category"]');
 const productCountDisplay = document.querySelector('.product-count'); 
 const cartCountDisplay = document.querySelector('.cart-count'); 
+const navCountDisplay = document.querySelector('.nav-count'); 
 const hamburgerMenu = document.getElementById('hamburger-menu');
 const navbar = document.getElementById('sidebar');
 const close = document.getElementById('close');
@@ -27,6 +28,7 @@ async function fetchProducts() {
         allProducts = await response.json();
         filteredProducts = [...allProducts]; 
         productCountDisplay.textContent = `${allProducts.length} Results`; 
+        navCountDisplay.textContent = `SEE ${allProducts.length} Results`; 
         renderProducts(); 
     } catch (error) {
         console.error('Error:', error);
@@ -109,6 +111,7 @@ function filterProducts() {
     );
 
     productCountDisplay.textContent = `${filteredProducts.length} Results`;
+    navCountDisplay.textContent = `${filteredProducts.length}`; // Update nav count
 
     currentPage = 1;
     productsContainer.innerHTML = '';

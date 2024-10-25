@@ -1,11 +1,10 @@
 const API_URL = 'https://fakestoreapi.com/products';
 const PRODUCTS_PER_PAGE = 12;
 
-
 let allProducts = [];
 let filteredProducts = [];
 let currentPage = 1;
-let cart = []; 
+let cart = [];
 
 // DOM Elements
 const productsContainer = document.getElementById('products-container');
@@ -45,21 +44,40 @@ function renderProducts() {
         <div class="product-card" id="product-${product.id}">
             <img src="${product.image}" class="product-image" alt="${product.title}">
             <div class="product-info">
-            <h3>${product.title}</h3>
-            <p>$${product.price.toFixed(2)}</p>
+                <h3>${product.title}</h3>
+                <p>$${product.price.toFixed(2)}</p>
             </div>
-            <button class="add-to-cart" data-product-id="${product.id}">Add to Cart</button>
+            <button class="favorite-icon" data-product-id="${product.id}">&#10084;</button>
         </div>
     `).join('');
 
-    // Add to Cart buttons functionality
-    const addToCartButtons = document.querySelectorAll('.add-to-cart');
-    addToCartButtons.forEach(button => {
-        button.addEventListener('click', (e) => addToCart(e.target.getAttribute('data-product-id')));
+    // Heart icon functionality
+    const favoriteIcons = document.querySelectorAll('.favorite-icon');
+    favoriteIcons.forEach(icon => {
+        icon.addEventListener('click', (e) => toggleFavorite(e.target));
     });
 
     // Load More button
     loadMoreButton.style.display = endIndex >= filteredProducts.length ? 'none' : 'block';
+}
+
+// Toggle favorite heart color and add/remove from cart
+function toggleFavorite(icon) {
+    const productId = icon.getAttribute('data-product-id');
+    const product = allProducts.find(prod => prod.id == productId);
+
+    if (!product) return;
+
+    if (icon.classList.toggle('active')) {
+        // Add to cart if not already in it
+        cart.push(product);
+    } else {
+        // Remove from cart
+        cart = cart.filter(item => item.id !== product.id);
+    }
+    
+    // Update cart count display
+    cartCountDisplay.textContent = cart.length;
 }
 
 // Load more products (pagination)
@@ -102,23 +120,12 @@ function filterProducts() {
     renderProducts();
 }
 
-// Add product to cart
-function addToCart(productId) {
-    const product = allProducts.find(prod => prod.id == productId);
-
-    if (product) {
-        cart.push(product);
-        cartCountDisplay.textContent = cart.length;
-    }
-}
-
 //hanmburgur
 
 hamburgerMenu.addEventListener('click', () => {
     navbar.querySelector('nav').classList.toggle('active');
 });
 
-console.log(hamburgerMenu);
 
 // Event listeners
 loadMoreButton.addEventListener('click', loadMoreProducts);

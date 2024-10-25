@@ -57,7 +57,6 @@ function renderProducts() {
         icon.addEventListener('click', (e) => toggleFavorite(e.target));
     });
 
-    // Load More button
     loadMoreButton.style.display = endIndex >= filteredProducts.length ? 'none' : 'block';
 }
 
@@ -69,18 +68,13 @@ function toggleFavorite(icon) {
     if (!product) return;
 
     if (icon.classList.toggle('active')) {
-        // Add to cart if not already in it
         cart.push(product);
     } else {
-        // Remove from cart
         cart = cart.filter(item => item.id !== product.id);
     }
-    
-    // Update cart count display
     cartCountDisplay.textContent = cart.length;
 }
 
-// Load more products (pagination)
 function loadMoreProducts() {
     currentPage++;
     renderProducts();
@@ -120,14 +114,10 @@ function filterProducts() {
     renderProducts();
 }
 
-//hanmburgur
-
 hamburgerMenu.addEventListener('click', () => {
     navbar.querySelector('nav').classList.toggle('active');
 });
 
-
-// Event listeners
 loadMoreButton.addEventListener('click', loadMoreProducts);
 sortSelect.addEventListener('change', (e) => sortProducts(e.target.value));
 categoryFilters.forEach(filter => filter.addEventListener('change', filterProducts));

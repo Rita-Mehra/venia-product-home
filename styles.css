@@ -50,6 +50,7 @@ header {
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
+    cursor: pointer;
 }
 
 nav ul {
@@ -147,6 +148,15 @@ nav ul li a.active {
     padding-right: 2rem;
 }
 
+.filters a {
+    color: #172026;
+    text-decoration: none;
+}
+
+.filters a:hover {
+    color: #1363DF;
+}
+
 .filter-group {
     margin: 10px 0;
     padding: 8px 0;
@@ -195,10 +205,6 @@ button#load-more {
 }
 
 .product-card button {
-    background: #000000;
-    color: #fff;
-    padding: 10px;
-    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -221,6 +227,18 @@ button#load-more {
     cursor: pointer;
 }
 
+.favorite-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: gray;
+}
+
+.favorite-icon.active {
+    color: red;
+}
+
 /* footer  */
 
 .footer-section a,
@@ -228,6 +246,10 @@ button#load-more {
     color: #545D63;
     text-decoration: none;
     font-size: 16px;
+}
+
+.footer-section a:hover {
+    color: #1363DF;
 }
 
 .legal-links a {

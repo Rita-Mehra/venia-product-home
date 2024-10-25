@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+    <title>Venia - Men's Outerwear</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container header">
+            <div class="hamburger-menu" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="logo">VENIA</div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Women</a></li>
+                    <li><a href="#">Men</a></li>
+                    <li><a href="#">Smart Gear</a></li>
+                    <li><a href="#">Accessories</a></li>
+                </ul>
+            </nav>
+            <div class="cart">
+                <img src="images/cart-bag.svg" height="30" width="30" />
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Men's <br />Outerwear</h1>
+        </div>
+        <div class="img-banner">
+            <img src="images/fashion-img.jpg" alt="full Image" />
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="content-wrapper">
+            <aside class="filters">
+                <div>Clothing / Women’s / Outerwear</div>
+                <h2>Filters</h2>
+                <div class="filter-group">
+                    <h3>Categories</h3>
+                    <label><input type="checkbox" name="category" value="jewelery"> Jewellery</label>
+                    <label><input type="checkbox" name="category" value="electronics"> Electronics</label>
+                    <label><input type="checkbox" name="category" value="men's clothing"> Men's Clothing</label>
+                    <label><input type="checkbox" name="category" value="women's clothing"> Women's Clothing</label>
+                </div>
+                <!-- Add more filter groups as needed -->
+            </aside>
+
+            <section class="product-list">
+                <div class="product-controls">
+                    <div class="product-count">0 Results</div>
+                    <div class="sort-dropdown">
+                        <select id="sort-select">
+                            <option value="price-asc">Sort by Price: Low to High</option>
+                            <option value="price-desc">Sort by Price: High to Low</option>
+                            <option value="name-asc">Sort by Name: A to Z</option>
+                            <option value="name-desc">Sort by Name: Z to A</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="products-container" class="products-grid">
+
+                </div>
+                <button id="load-more">Load More</button>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content container">
+            <div class="footer-section">
+                <h3>Account</h3>
+                <ul>
+                    <li><a href="#">Sign In</a></li>
+                    <li><a href="#">Register</a></li>
+                    <li><a href="#">Order Status</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Help</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Order Status</a></li>
+                    <li><a href="#">Returns</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us!</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore.</p>
+                <div class="social-icons">
+                    <a href="#" class="icon-footer"><img src="images/instagram.svg" alt="social media" /></a>
+                    <a href="#" class="icon-footer"><img src="images/facebook.svg" alt="social media" /></a>
+                    <a href="#" class="icon-footer"><img src="images/twitter.svg" alt="social media" /></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom container">
+            <div class="logo">VENIA</div>
+            <p>&copy; Company Name Address Ave, City Name, State ZIP</p>
+            <div class="legal-links">
+                <a href="#">Terms of Use</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="product.js"></script>
+</body>
+
+</html>
